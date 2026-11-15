@@ -86,6 +86,8 @@ Tested on a Raspberry Pi running Raspberry Pi OS.
 
 The interface is at `http://localhost:4711` (or the port set in `Port=` under `[WebServer]`).
 
+If you download the ZIP from GitHub, rename the extracted folder to `AmuleWebUI-New`.
+
 ### Good to know
 
 - **Before you log in, amuleweb only serves images**: any other request, including `.css`
@@ -108,6 +110,7 @@ Contributors to the original project:
 * Daneden for [animate.css](https://github.com/daneden/animate.css/) (the two animations used are now plain CSS in `amule.css`)
 * tetreum for fixes in CSS ([Pull 23](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/23)) and page refresh ([Pull 24](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/24))
 * brunix86 for multiple selection, download confirmation and log fixes ([Pull 42](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/42))
+* RealGreenDragon for saving missing options in preferences ([Pull 44](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/44)) and skipping empty ed2k links ([Pull 46](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/46))
 
 2026 refresh: **Maurizio Imperatrice**.
 
