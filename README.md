@@ -8,9 +8,16 @@ Bootstrap 5, a single stylesheet, a dark theme and a layout that works on phones
 > Like the original, it is released under the **GNU General Public License v3** (see [LICENSE](LICENSE)).
 > The full list of changes is in this repository's commit history.
 
-| Transfers | Phone |
-| --- | --- |
-| ![Transfers](doc-images/reloaded-2026/transfer.png "Transfers") | ![Transfers on a phone](doc-images/reloaded-2026/mobile-transfer.png "Transfers on a phone") |
+<table>
+  <tr>
+    <th>Transfers</th>
+    <th>Phone</th>
+  </tr>
+  <tr>
+    <td><img src="doc-images/reloaded-2026/transfer.png" alt="Transfers" width="600"></td>
+    <td><img src="doc-images/reloaded-2026/mobile-transfer.png" alt="Transfers on a phone" width="220"></td>
+  </tr>
+</table>
 
 ## What's new
 
