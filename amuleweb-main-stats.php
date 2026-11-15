@@ -1,17 +1,24 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html data-bs-theme="dark">
 <head>
-<title>aMule - Control panel - Statistics</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>aMule - Control panel - Statistics</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#172631">
+	<link rel="icon" type="image/x-icon" href="/amule/favicon.ico">
 
+	<!-- Bootstrap 5 e stili del tema (tutti nel file amule.css) -->
+	<link rel="stylesheet" href="bootstrap-5.3.8.min.css">
+	<link rel="stylesheet" href="amule.css">
+	<script src="bootstrap-5.3.8.bundle.min.js"></script>
+	<script src="amule.js"></script>
 <?php
   if ( $_SESSION["auto_refresh"] > 0 ) {
     echo "<meta http-equiv=\"refresh\" content=\"", $_SESSION["auto_refresh"], '">';
   }
   amule_load_vars("stats_graph");
 ?>
-
-  <script language="JavaScript" type="text/JavaScript">
+  <script>
 
     var openImg = new Image();
     openImg.src = "tree-open.gif";
@@ -35,285 +42,83 @@
     }
 
   </script>
-
-  <!-- Inclusion of bootstrap css -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" integrity="sha384-/Gm+ur33q/W+9ANGYwB2Q4V0ZWApToOzRuA8md/1p9xMMxpqnlguMvk8QuEFWA1B" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" integrity="sha384-7tY7Dc2Q8WQTKGz2Fa0vC4dWQo07N4mJjKvHfIGnxuC4vPqFGFQppd9b3NWpf18/" crossorigin="anonymous">
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" integrity="sha384-BD3p+z3TqIhBK2OaMBRzK4Nz02t4OQcwrEkJxy3PAqU2Rwm1giS6RCgvBDk6+iPH" crossorigin="anonymous">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" integrity="sha384-oFMgcGzKX7GaHtF4hx14KbxdsGjyfHK6m1comHjI1FH6g4m6qYre+4cnZbwaYbHD" crossorigin="anonymous"></script>
-
-  <script type="text/Javascript">
-    $(function () { $("[data-toggle='tooltip']").tooltip(); });
-    $(function () { $("[data-toggle='popover']").popover(); });
-  </script>
-
-  <!-- Style for navigation bar -->
-  <style type="text/css">
-    body {
-      padding-top: 60px;
-      background-color:#39425f;
-    }
-    .logo-nav {
-      height: 40px;
-      width: 40px;
-    }
-    .navbar-brand {
-      padding-top: 5px;
-    }
-    .navbar-link:hover {
-			color: white !important;
-		}
-    .btn-dark {
-      background-color: hsl(0, 0%, 16%) !important;
-      background-repeat: repeat-x;
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5b5b5b", endColorstr="#282828");
-      background-image: -khtml-gradient(linear, left top, left bottom, from(#5b5b5b), to(#282828));
-      background-image: -moz-linear-gradient(top, #5b5b5b, #282828);
-      background-image: -ms-linear-gradient(top, #5b5b5b, #282828);
-      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5b5b5b), color-stop(100%, #282828));
-      background-image: -webkit-linear-gradient(top, #5b5b5b, #282828);
-      background-image: -o-linear-gradient(top, #5b5b5b, #282828);
-      background-image: linear-gradient(#5b5b5b, #282828);
-      border-color: #282828 #282828 hsl(0, 0%, 11%);
-      color: #fff !important;
-      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
-      -webkit-font-smoothing: antialiased;
-    }
-  </style>
-
-  <!-- Tables -->
-  <style type="css/text">
-    .panel-tr {
-      width: 95%;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 10px;
-    }
-    .panel-center {
-      text-align: center;
-      margin: auto;
-    }
-    .glyphicon-green {
-      color: #00CC33;
-    }
-    .glyphicon-red {
-      color: #B00000;
-    }
-
-    .stats-col {
-      margin: 5px;
-    }
-
-  </style>
-
-
-	 <!-- /* Styling for Brax AmuleWebUI Material Theme */-->
-        <style text="css/text">
-
-                .navbar {
-                background-color:#2f303d;
-                }
-                .label-success {
-                        background-color:#319a9b;
-                }
-                .label-default {
-                        background-color:#ffffff;
-                        color:#319a9b;
-                }
-                .panel {
-                        background-color:#39425f;
-                        border: 0;
-                }
-                .panel-heading{
-                        background-color:#319a9b;
-                        border: 0;
-                }
-                .form-control {
-                border: 0;
-                }
-                .table > thead > tr > th, .table > thead > tr > td {
-                        border: 0;
-                }
-                .glyphicon {
-                        color:#319a9b;
-                }
-                .btn:hover .glyphicon{
-                        color:#fff;
-                  }
-                  a:hover {
-                        color:#fff;
-                        }
-                a {
-                        color:#4db6ac;
-                }
-                h4 {
-                        color:#cfd8dc;
-                }
-                 td {
-                        color:#cfd8dc
-                }
-                  th {
-                        color:#4db6ac
-                }
-        </style>
-
-
-        <!-- Styling for footer -->
-        <style text="css/text">
-                #footer {
-                        position: fixed;
-                        bottom: 0;
-                        width: 100%;
-                        /* Set the fixed height of the footer here */
-                        height:auto;
-                        background-color:#2f303d;
-                }
-                #ed2link {
-                        margin-right: 5px;
-                        width: 120px;
-                }
-                #selectcat {
-                        border-radius: 0px;
-                        width: 100px;
-                }
-                #formed2link {
-                        margin: 5px;
-                }
-        </style>
 </head>
 
+<body class="page-stats">
+	<!-- Barra di navigazione (uguale in tutte le pagine) -->
+	<nav class="navbar fixed-top amule-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="#"><img src="logo-nav-brax.png" class="logo-nav" alt=""><span class="brand-text">aMule WebUI</span></a>
+			<div class="amule-menu">
+				<div class="btn-group">
+					<a class="btn btn-icon navbar-link" title="Downloads and Uploads" href="amuleweb-main-dload.php"><span class="bi bi-arrow-left-right"></span><span class="btn-label">Transfer</span></a>
+					<a class="btn btn-icon navbar-link" title="Sharing" href="amuleweb-main-shared.php"><span class="bi bi-share-fill"></span><span class="btn-label">Shared</span></a>
+					<a class="btn btn-icon navbar-link" title="Search" href="amuleweb-main-search.php"><span class="bi bi-search"></span><span class="btn-label">Search</span></a>
+					<a class="btn btn-icon navbar-link" title="Servers" href="amuleweb-main-servers.php"><span class="bi bi-hdd-stack-fill"></span><span class="btn-label">Server</span></a>
+					<a class="btn btn-icon navbar-link" title="Kademlia" href="amuleweb-main-kad.php"><span class="bi bi-asterisk"></span><span class="btn-label">Kad</span></a>
+					<a class="btn btn-icon navbar-link active" title="Statistics" href="amuleweb-main-stats.php" aria-current="page"><span class="bi bi-bar-chart-fill"></span><span class="btn-label">Stats</span></a>
+				</div>
+				<div class="btn-group">
+					<a class="btn btn-icon navbar-link" title="Configurations" href="amuleweb-main-prefs.php"><span class="bi bi-gear-fill"></span><span class="btn-label">Settings</span></a>
+					<a class="btn btn-icon navbar-link" title="Log" href="amuleweb-main-log.php"><span class="bi bi-flag-fill"></span><span class="btn-label">Logs</span></a>
+					<a class="btn btn-icon navbar-link" title="Exit" href="login.php"><span class="bi bi-power"></span><span class="btn-label">Exit</span></a>
+				</div>
+			</div>
+		</div>
+	</nav>
 
-<body>
-  <!-- Navigation bar :: This part will be common in all the scripts -->
-  <nav class="navbar  navbar-fixed-top" role="navigation">
-      <div class="container">
-        <a class="navbar-brand" href="#"><img src="logo-nav-brax.png" class="logo-nav"> aMule WebUI</a>
-        <form class="navbar-form navbar-right" role="form" name="login">
-        <div class="collapse navbar-collapse">
-						<div class="btn-group">
-                                                <!-- Downloads -->
-                                                <a class="btn  navbar-link" title="Downloads and Uploads" href="amuleweb-main-dload.php">
-                                                                <span class="glyphicon glyphicon-transfer"></span>
-                                                                <div style="font-size:9px"><br>Transfer</div>
-                                                </a>
-                                                <!-- Shared -->
-                                                <a class="btn  navbar-link" title="Sharing" href="amuleweb-main-shared.php">
-                                                                <span class="glyphicon glyphicon-share"></span>
-                                                                <div style="font-size:9px"><br>Shared</div>
-                                                                </a>
-                                                <!-- Search -->
-                                                <a class="btn  navbar-link" title="Search" href="amuleweb-main-search.php">
-                                                                <span class="glyphicon glyphicon-search"></span>
-                                                                <div style="font-size:9px"><br>Search</div>
-                                                </a>
-                                                <!-- Servers -->
-                                                <a class="btn  navbar-link" title="Servers" href="amuleweb-main-servers.php">
-                                                                <span class="glyphicon glyphicon-tasks"></span>
-                                                                <div style="font-size:9px"><br>Server</div>
-                                                </a>
-                                                <!-- Kad -->
-                                                <a class="btn  navbar-link" title="Kademlia" href="amuleweb-main-kad.php">
-                                                                <span class="glyphicon glyphicon-asterisk"></span>
-                                                                <div style="font-size:9px"><br>Kad</div>
-                                                </a>
-                                                <!-- Stats -->
-                                                <a class="btn  navbar-link" title="Statistics" href="amuleweb-main-stats.php">
-                                                                <span class="glyphicon glyphicon-stats"></span>
-                                                                <div style="font-size:9px"><br>Stats</div>
-                                                </a>
-                                        </div>
-                                        <div class="btn-group">
-                                                <!-- Configuration -->
-                                                <a class="btn navbar-link" title="Configurations" href="amuleweb-main-prefs.php">
-                                                                <span class="glyphicon glyphicon-cog"></span>
-                                                                <div style="font-size:9px"><br>Settings</div>
-                                                </a>
-                                                <!-- Log -->
-                                                <a class="btn  navbar-link" title="Log" href="amuleweb-main-log.php">
-                                                                <span class="glyphicon glyphicon-flag"></span>
-                                                                <div style="font-size:9px"><br>Logs</div>
-                                                </a>
-                                                <!-- Exit -->
-                                                <a class="btn navbar-link" title="Exit" href="login.php">
-                                                                <span class="glyphicon glyphicon-off"></span>
-                                                                <div style="font-size:9px"><br>Exit</div>
-                                                </a>
-            </div>
-          </div>
-        </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
+	<!-- Statistiche: albero a sinistra, grafici a destra -->
+	<div class="container-fluid panel-tr panel-last">
+		<div class="panel">
+			<div class="panel-heading panel-center"><h4>STATISTICS</h4></div>
+			<div class="row g-3 stats-row">
+				<div class="col-lg-4">
+					<iframe name="stats" src="stats_tree.php" class="stats-tree" title="Statistics tree">liste</iframe>
+				</div>
+				<div class="col-lg-8">
+					<div id="carousel-stats" class="carousel slide stats-carousel" data-bs-ride="carousel">
+						<div class="carousel-indicators">
+						<button type="button" data-bs-target="#carousel-stats" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Downloads"></button>
+						<button type="button" data-bs-target="#carousel-stats" data-bs-slide-to="1" aria-label="Uploads"></button>
+						<button type="button" data-bs-target="#carousel-stats" data-bs-slide-to="2" aria-label="Connections Count"></button>
+						<button type="button" data-bs-target="#carousel-stats" data-bs-slide-to="3" aria-label="KAD Nodes"></button>
+						</div>
+						<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img src="amule_stats_download.png" class="d-block w-100" alt="Download graph">
+							<div class="carousel-caption"><h3>Downloads</h3></div>
+						</div>
+						<div class="carousel-item">
+							<img src="amule_stats_upload.png" class="d-block w-100" alt="Upload graph">
+							<div class="carousel-caption"><h3>Uploads</h3></div>
+						</div>
+						<div class="carousel-item">
+							<img src="amule_stats_conncount.png" class="d-block w-100" alt="Connection count graph">
+							<div class="carousel-caption"><h3>Connections Count</h3></div>
+						</div>
+						<div class="carousel-item">
+							<img src="amule_stats_kad.png" class="d-block w-100" alt="KAD graph">
+							<div class="carousel-caption"><h3>KAD Nodes</h3></div>
+						</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carousel-stats" data-bs-slide="prev">
+							<span class="bi bi-chevron-left"></span><span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carousel-stats" data-bs-slide="next">
+							<span class="bi bi-chevron-right"></span><span class="visually-hidden">Next</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <div class="container-fluid panel-tr" style="margin-bottom: 60px;">
-    <div class="panel ">
-    <div class="panel-heading panel-center" style="text-align:center;"><h4>STATISTICS</h4></div>
-      <div class="container-fluid">
-      <div class="col-md-4 stats-col " style="margin-top: 10px; margin-bottom: 10px;">
-      <iframe name="stats" src="stats_tree.php" width="100%" height="450" frameborder="0">liste</iframe>
-      </div>
-      <div class="col-md-8 stats-col" style="margin-top: 10px;">
-      <div id="carousel-stats" class="carousel slide" data-ride="carousel" style="height:450px;">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-stats" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-stats" data-slide-to="1"></li>
-          <li data-target="#carousel-stats" data-slide-to="2"></li>
-          <li data-target="#carousel-stats" data-slide-to="3"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <div class="item active">
-            <img src="amule_stats_download.png" alt="Download graph" style="height:100%; width:100%;"/>
-            <div class="carousel-caption">
-              <h3>Downloads</h3>
-            </div>
-          </div>
-          <div class="item">
-            <img src="amule_stats_upload.png" alt="Upload graph" style="height:100%; width:100%;"/>
-            <div class="carousel-caption">
-              <h3>Uploads</h3>
-            </div>
-          </div>
-          <div class="item">
-            <img src="amule_stats_conncount.png" alt="Connection count graph" style="height:100%; width:100%;"/>
-            <div class="carousel-caption">
-              <h3>Connections Count</h3>
-            </div>
-          </div>
-          <div class="item">
-            <img src="amule_stats_kad.png" alt="KAD graph" style="height:100%; width:100%;"/>
-            <div class="carousel-caption">
-              <h3>KAD Nodes</h3>
-            </div>
-          </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-stats" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-stats" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-        </div>
-      </div>
-      </div>
-      </div>
-    </div>
-
-
-    <!-- Footer -->
-    <div id="footer">
-    <div class="col-md-1"></div>
-    <div class="col-md-5">
-      <form name="formlink" method="post" class="form-inline" action="amuleweb-main-stats.php" role="form" id="formed2link">
-          <div class="btn-group">
-              <input class="form-control btn-group" name="ed2klink" type="text" id="ed2klink" placeholder="ed2k:// - Insert link" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px; height: 30px;" size="25">
-              <select class="form-control btn-group" name="selectcat" id="selectcat" style="height: 30px;">
-
-              <?php
+	<!-- Piè di pagina: link ed2k e stato delle connessioni -->
+	<div id="footer">
+		<form name="formlink" method="post" class="form-inline" action="amuleweb-main-stats.php" role="form" id="formed2link">
+			<input class="form-control" name="ed2klink" type="text" id="ed2klink" placeholder="ed2k:// - Insert link" size="25">
+			<select class="form-select" name="selectcat" id="selectcat">
+				<?php
             $cats = amule_get_categories();
 
             if ( $HTTP_GET_VARS["Submit"] != "" ) {
@@ -328,9 +133,7 @@
               if ( strlen($link) > 0 ) {
                 $links = split("ed2k://", $link);
                 foreach($links as $linkn) {
-                  if (strlen($linkn) > 0){
                     amule_do_ed2k_download_cmd("ed2k://" . $linkn, $target_cat_idx);
-                  }
                 }
               }
             }
@@ -339,15 +142,11 @@
               echo  '<option>', $c, '</option>';
             }
           ?>
-
-            </select>
-            <input class="btn btn-default btn-group" type="submit" name="Submit" value="Download link" onClick="amuleweb-main-dload.php" style="height: 30px;">
-        </div>
-    </form>
-    </div>
-    <div class="col-md-5">
-      <div class="form-inline" style="margin-top:10px;">
-        <?php
+			</select>
+			<input class="btn btn-default" type="submit" name="Submit" value="Download link">
+		</form>
+		<div class="footer-status">
+			<?php
               $stats = amule_get_stats();
             if ( $stats["id"] == 0 ) {
               $ed2k = "Not connected";
@@ -379,10 +178,7 @@
             echo '<span class="label label-default">KAD:</span> ';
             echo '<span class="label label-', $kad_status, '">', $kad1, ' ', $kad2, '</span>';
           ?>
-      </div>
-    </div>
-    <div class="col-md-1"></div>
-  </div>
-
+		</div>
+	</div>
 </body>
 </html>

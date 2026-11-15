@@ -1,171 +1,18 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html data-bs-theme="dark">
 <head>
 	<title>aMule - Control Panel - Shared</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#172631">
+	<link rel="icon" type="image/x-icon" href="/amule/favicon.ico">
 
-	<!-- Inclusion of bootstrap css -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" integrity="sha384-/Gm+ur33q/W+9ANGYwB2Q4V0ZWApToOzRuA8md/1p9xMMxpqnlguMvk8QuEFWA1B" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" integrity="sha384-7tY7Dc2Q8WQTKGz2Fa0vC4dWQo07N4mJjKvHfIGnxuC4vPqFGFQppd9b3NWpf18/" crossorigin="anonymous">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" integrity="sha384-BD3p+z3TqIhBK2OaMBRzK4Nz02t4OQcwrEkJxy3PAqU2Rwm1giS6RCgvBDk6+iPH" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" integrity="sha384-oFMgcGzKX7GaHtF4hx14KbxdsGjyfHK6m1comHjI1FH6g4m6qYre+4cnZbwaYbHD" crossorigin="anonymous"></script>
-
-	<script type="text/Javascript">
-		$(function () { $("[data-toggle='tooltip']").tooltip(); });
-		$(function () { $("[data-toggle='popover']").popover(); });
-	</script>
-
-	<!-- Style for navigation bar -->
-	<style type="text/css">
-		body {
-			padding-top: 60px;
-			background-color:#39425f;
-		}
-		.logo-nav {
-			height: 40px;
-			width: 40px;
-		}
-		.navbar-brand {
-			padding-top: 5px;
-		}
-		.navbar-link:hover {
-			color: white !important;
-		}
-	</style>
-
-	<!-- Tasks panel -->
-	<style type="text/css">
-		.panel-tasks {
-			width: 95%;
-			margin-left: auto;
-			margin-right: auto;
-		}
-		.panel-center {
-			text-align: center;
-			margin: auto;
-		}
-		.form-tasks .btn:hover {
-			color: white !important;
-		}
-		#filter {
-			width: 125px;
-			height: 28px;
-			border-top-right-radius: 0px;
-			border-bottom-right-radius: 0px;
-		}
-		#category {
-			width: 125px;
-			height: 28px;
-			border-radius: 0px;
-		}
-		.btn-filter {
-			border-top-left-radius: 0px;
-			border-bottom-left-radius: 0px;
-		}
-		.form-inline {
-			margin-top: 1px;
-			margin-bottom: 1px;
-		}
-	</style>
-
-	<!-- Tables -->
-	<style type="css/text">
-		.panel-tr {
-			width: 95%;
-			margin-left: auto;
-			margin-right: auto;
-			margin-top: 10px;
-		}
-	</style>
-
-		 <!-- /* Styling for Brax AmuleWebUI Material Theme */-->
-        <style text="css/text">
-
-                .navbar {
-                background-color:#2f303d;
-                }
-                .label-success {
-                        background-color:#319a9b;
-                }
-                .label-default {
-                        background-color:#ffffff;
-                        color:#319a9b;
-                }
-                .panel {
-                        background-color:#39425f;
-                        border: 0;
-                }
-                .panel-heading{
-                        background-color:#319a9b;
-                        border: 0;
-                }
-                .form-control {
-                border: 0;
-                }
-                .table > thead > tr > th, .table > thead > tr > td {
-                        border: 1;
-                }
-                .glyphicon {
-                        color:#319a9b;
-                }
-                .btn:hover .glyphicon{
-                        color:#fff;
-                }
-                .popover {
-                background-color:#319a9b;
-                color:black;
-                }
-                a:hover {
-                        color:#fff;
-                        }
-                a {
-                        color:#4db6ac;
-                }
-                h4 {
-                        color:#cfd8dc;
-                }
-                b:hover {
-                        color:#319a9b;
-                        }
-                b {
-                        color:#cfd8dc
-                }
-                  th {
-                        color:#4db6ac
-                }
-		td {
-			color:#ffffff
-		}
-        </style>
-
-
-        <!-- Styling for footer -->
-        <style text="css/text">
-                #footer {
-                        position: fixed;
-                        bottom: 0;
-                        width: 100%;
-                        /* Set the fixed height of the footer here */
-                        height: auto;
-                        background-color:#2f303d;
-                }
-                #ed2link {
-                        margin-right: 5px;
-                        width: 120px;
-                }
-                #selectcat {
-                        border-radius: 0px;
-                        width: 100px;
-                }
-                #formed2link {
-                        margin: 5px;
-                }
-        </style>
-
-</head>
-
-<script language="JavaScript" type="text/JavaScript">
+	<!-- Bootstrap 5 e stili del tema (tutti nel file amule.css) -->
+	<link rel="stylesheet" href="bootstrap-5.3.8.min.css">
+	<link rel="stylesheet" href="amule.css">
+	<script src="bootstrap-5.3.8.bundle.min.js"></script>
+	<script src="amule.js"></script>
+<script>
 function formCommandSubmit(command)
 	{
 		<?php
@@ -185,7 +32,7 @@ function selectAll(check)
 		{
 			checkboxes.forEach(function(checkbox) {
 				checkbox.checked = true;
-			});
+			});			
 		}
 		else
 		{
@@ -195,104 +42,56 @@ function selectAll(check)
 		}
 	}
 </script>
+</head>
 
-
-<body class="animated fadeIn" style="animation-duration: 1.5s">
-
-	<!-- Navigation bar :: This part will be common in all the scripts -->
-	<nav class="navbar navbar-fixed-top" role="navigation">
-	    <div class="container">
-	    	<a class="navbar-brand" href="#"><img src="logo-nav-brax.png" class="logo-nav"> aMule WebUI</a>
-	    	<form class="navbar-form navbar-right" role="form" name="login">
-				<div class="collapse navbar-collapse">
-									<div class="btn-group">
-                                                <!-- Downloads -->
-                                                <a class="btn  navbar-link" title="Downloads and Uploads" href="amuleweb-main-dload.php">
-                                                                <span class="glyphicon glyphicon-transfer"></span>
-                                                                <div style="font-size:9px"><br>Transfer</div>
-                                                </a>
-                                                <!-- Shared -->
-                                                <a class="btn  navbar-link" title="Sharing" href="amuleweb-main-shared.php">
-                                                                <span class="glyphicon glyphicon-share"></span>
-                                                                <div style="font-size:9px"><br>Shared</div>
-                                                                </a>
-                                                <!-- Search -->
-                                                <a class="btn  navbar-link" title="Search" href="amuleweb-main-search.php">
-                                                                <span class="glyphicon glyphicon-search"></span>
-                                                                <div style="font-size:9px"><br>Search</div>
-                                                </a>
-                                                <!-- Servers -->
-                                                <a class="btn  navbar-link" title="Servers" href="amuleweb-main-servers.php">
-                                                                <span class="glyphicon glyphicon-tasks"></span>
-                                                                <div style="font-size:9px"><br>Server</div>
-                                                </a>
-                                                <!-- Kad -->
-                                                <a class="btn  navbar-link" title="Kademlia" href="amuleweb-main-kad.php">
-                                                                <span class="glyphicon glyphicon-asterisk"></span>
-                                                                <div style="font-size:9px"><br>Kad</div>
-                                                </a>
-                                                <!-- Stats -->
-                                                <a class="btn  navbar-link" title="Statistics" href="amuleweb-main-stats.php">
-                                                                <span class="glyphicon glyphicon-stats"></span>
-                                                                <div style="font-size:9px"><br>Stats</div>
-                                                </a>
-                                        </div>
-                                        <div class="btn-group">
-                                                <!-- Configuration -->
-                                                <a class="btn navbar-link" title="Configurations" href="amuleweb-main-prefs.php">
-                                                                <span class="glyphicon glyphicon-cog"></span>
-                                                                <div style="font-size:9px"><br>Settings</div>
-                                                </a>
-                                                <!-- Log -->
-                                                <a class="btn  navbar-link" title="Log" href="amuleweb-main-log.php">
-                                                                <span class="glyphicon glyphicon-flag"></span>
-                                                                <div style="font-size:9px"><br>Logs</div>
-                                                </a>
-                                                <!-- Exit -->
-                                                <a class="btn navbar-link" title="Exit" href="login.php">
-                                                                <span class="glyphicon glyphicon-off"></span>
-                                                                <div style="font-size:9px"><br>Exit</div>
-                                                </a>
-				   	</div>
-		    	</div>
-    		</form>
-    		</div><!--/.navbar-collapse -->
-    	</div>
-    </nav>
+<body class="page-shared animated fadeIn">
+	<!-- Barra di navigazione (uguale in tutte le pagine) -->
+	<nav class="navbar fixed-top amule-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="#"><img src="logo-nav-brax.png" class="logo-nav" alt=""><span class="brand-text">aMule WebUI</span></a>
+			<div class="amule-menu">
+				<div class="btn-group">
+					<a class="btn btn-icon navbar-link" title="Downloads and Uploads" href="amuleweb-main-dload.php"><span class="bi bi-arrow-left-right"></span><span class="btn-label">Transfer</span></a>
+					<a class="btn btn-icon navbar-link active" title="Sharing" href="amuleweb-main-shared.php" aria-current="page"><span class="bi bi-share-fill"></span><span class="btn-label">Shared</span></a>
+					<a class="btn btn-icon navbar-link" title="Search" href="amuleweb-main-search.php"><span class="bi bi-search"></span><span class="btn-label">Search</span></a>
+					<a class="btn btn-icon navbar-link" title="Servers" href="amuleweb-main-servers.php"><span class="bi bi-hdd-stack-fill"></span><span class="btn-label">Server</span></a>
+					<a class="btn btn-icon navbar-link" title="Kademlia" href="amuleweb-main-kad.php"><span class="bi bi-asterisk"></span><span class="btn-label">Kad</span></a>
+					<a class="btn btn-icon navbar-link" title="Statistics" href="amuleweb-main-stats.php"><span class="bi bi-bar-chart-fill"></span><span class="btn-label">Stats</span></a>
+				</div>
+				<div class="btn-group">
+					<a class="btn btn-icon navbar-link" title="Configurations" href="amuleweb-main-prefs.php"><span class="bi bi-gear-fill"></span><span class="btn-label">Settings</span></a>
+					<a class="btn btn-icon navbar-link" title="Log" href="amuleweb-main-log.php"><span class="bi bi-flag-fill"></span><span class="btn-label">Logs</span></a>
+					<a class="btn btn-icon navbar-link" title="Exit" href="login.php"><span class="bi bi-power"></span><span class="btn-label">Exit</span></a>
+				</div>
+			</div>
+		</div>
+	</nav>
 
     <!-- Commands -->
     <form name="mainform" action="amuleweb-main-shared.php" method="post">
     <div class="panel panel-tasks">
   		<div class="panel-body container panel-center">
-    		<div class="form-inline form-tasks" action="amuleweb-main-shared.php" method="post" name="mainform">
+    		<div class="form-inline form-tasks">
     		<input type="hidden" name="command">
     		<div class="btn-group">
-    			<a class="btn" href="javascript:formCommandSubmit('priodown');" title="Lower priority">
-						<span class="glyphicon glyphicon-download"></span>
-						<div style="font-size:9px"><br>Lower Priority</div>
-					</a>
-    			<a class="btn" href="javascript:formCommandSubmit('reload');" title="Refresh">
-						<span class="glyphicon glyphicon-refresh"></span>
-						<div style="font-size:9px"><br>Refresh</div>
-					</a>
-    			<a class="btn" href="javascript:formCommandSubmit('prioup');" title="Higher priority">
-						<span class="glyphicon glyphicon-upload"></span>
-						<div style="font-size:9px"><br>High Priority</div>
-					</a>
+    			<a class="btn btn-icon" href="javascript:formCommandSubmit('priodown');" title="Lower priority">
+						<span class="bi bi-arrow-down-circle"></span><span class="btn-label">Lower Priority</span></a>
+    			<a class="btn btn-icon" href="javascript:formCommandSubmit('reload');" title="Refresh">
+						<span class="bi bi-arrow-clockwise"></span><span class="btn-label">Refresh</span></a>
+    			<a class="btn btn-icon" href="javascript:formCommandSubmit('prioup');" title="Higher priority">
+						<span class="bi bi-arrow-up-circle"></span><span class="btn-label">High Priority</span></a>
     		</div>
     		<!-- Inserting filtering php -->
     		<div class="btn-group">
-     			<select name="select" id="filter" class="form-control btn-group">
+     			<select name="select" id="filter" class="form-select">
      				<option selected>All</option>
      				<option>Low</option>
      				<option>Normal</option>
      				<option>High</option>
      				<option>Release</option>
      			</select>
-    			<a class="btn btn-filter" href="javascript:formCommandSubmit('setprio');" title="Filter">
-						<span class="glyphicon glyphicon-check"></span>
-						<div style="font-size:9px"><br>Filter</div>
-					</a>
+    			<a class="btn btn-icon btn-filter" href="javascript:formCommandSubmit('setprio');" title="Filter">
+						<span class="bi bi-check2-square"></span><span class="btn-label">Filter</span></a>
     			<?php
     				if ($_SESSION["guest_login"] != 0) {
 					    echo '<br><br><span class="label label-warning">You logged in as guest - commands are disabled</span>';
@@ -303,14 +102,13 @@ function selectAll(check)
   		</div>
 	</div>
 
-
 	<!-- Center table -->
 	<div class="container-fluid panel-tr">
 
 		<!-- Table Download -->
-		<div class="panel" style="margin-bottom: 60px;">
+		<div class="panel panel-last">
 		<div class="panel-heading panel-center"><h4>SHARED FILES</h4></div>
-			<table class="table">
+			<div class="table-responsive"><table class="table">
 				<thead>
 					<tr>
 						<th><input type="checkbox" name="selectAllFiles" onclick='selectAll(this);'></th>
@@ -340,11 +138,11 @@ function selectAll(check)
 
 					function StatusString($file) {
 						if ( $file->status == 7 ) {
-							return '<span class="label label-info" style="font-size:12px; padding-top:3.6px;">Paused</span>';
+							return '<span class="label label-info">Paused</span>';
 						} elseif ( $file->src_count_xfer > 0 ) {
-							return '<span class="label label-success" style="font-size:12px;">Downloading</span>';
+							return '<span class="label label-success">Downloading</span>';
 						} else {
-							return '<span class="label label-warning" style="font-size:12px;">Waiting</span>';
+							return '<span class="label label-warning">Waiting</span>';
 						}
 					}
 
@@ -440,26 +238,26 @@ function selectAll(check)
 						foreach ($shared as $file) {
 
 							echo '<tr>';
-							echo '<td style="font-size:12px;">', '<div class="checkbox download-checkbox" style="margin: 0px;"><input type="checkbox" name="', $file->hash, '" >', "</div></td>";
-							echo '<td style="font-size:12px;">', '<div style="margin: 0px;"><label><b>', $file->name, "</b></label></div></td>";
-							echo '<td style="font-size:12px;">', CastToXBytes($file->xfer), " (", CastToXBytes($file->xfer_all),")</td>";
-							echo '<td style="font-size:12px;">', $file->req, " (", $file->req_all, ")</td>";
-							echo '<td style="font-size:12px;">', $file->accept, " (", $file->accept_all, ")</td>";
-							echo '<td style="font-size:12px;">', CastToXBytes($file->size), "</td>";
-							echo '<td style="font-size:12px;">', PrioString($file), "</td>";;
+							echo '<td>', '<div class="checkbox download-checkbox"><input type="checkbox" name="', $file->hash, '" >', "</div></td>";
+							echo '<td>', '<div><label><b>', $file->name, "</b></label></div></td>";
+							echo '<td>', CastToXBytes($file->xfer), " (", CastToXBytes($file->xfer_all),")</td>";
+							echo '<td>', $file->req, " (", $file->req_all, ")</td>";
+							echo '<td>', $file->accept, " (", $file->accept_all, ")</td>";
+							echo '<td>', CastToXBytes($file->size), "</td>";
+							echo '<td>', PrioString($file), "</td>";;
 							echo '</tr>';
 						}
 					} else {
 						foreach ($shared as $file) {
 							if ($HTTP_GET_VARS["select"] == PrioStringSorter($file)) {
 								echo '<tr>';
-								echo '<td style="font-size:12px;">', '<div class="checkbox download-checkbox" style="margin: 0px;"><input type="checkbox" name="', $file->hash, '" >', "</div></td>";
-								echo '<td style="font-size:12px;">', '<div style="margin: 0px;"><label><b>', $file->name, "</b></label></div></td>";
-								echo '<td style="font-size:12px;">', CastToXBytes($file->xfer), " (", CastToXBytes($file->xfer_all),")</td>";
-								echo '<td style="font-size:12px;">', $file->req, " (", $file->req_all, ")</td>";
-								echo '<td style="font-size:12px;">', $file->accept, " (", $file->accept_all, ")</td>";
-								echo '<td style="font-size:12px;">', CastToXBytes($file->size), "</td>";
-								echo '<td style="font-size:12px;">', PrioString($file), "</td>";;
+								echo '<td>', '<div class="checkbox download-checkbox"><input type="checkbox" name="', $file->hash, '" >', "</div></td>";
+								echo '<td>', '<div><label><b>', $file->name, "</b></label></div></td>";
+								echo '<td>', CastToXBytes($file->xfer), " (", CastToXBytes($file->xfer_all),")</td>";
+								echo '<td>', $file->req, " (", $file->req_all, ")</td>";
+								echo '<td>', $file->accept, " (", $file->accept_all, ")</td>";
+								echo '<td>', CastToXBytes($file->size), "</td>";
+								echo '<td>', PrioString($file), "</td>";;
 								echo '</tr>';
 							}
 						}
@@ -467,21 +265,17 @@ function selectAll(check)
 				?>
 
 				</tbody>
-			</table>
+			</table></div>
 		</div>
 		</div>
 		</form>
-		</div>
 
-		<!-- Footer -->
-		<div id="footer">
-			<div class="col-md-1"></div>
-			<div class="col-md-5">
-				<form name="formlink" method="post" class="form-inline" action="amuleweb-main-shared.php" role="form" id="formed2link">
-	    			<div class="btn-group">
-	        			<input class="form-control btn-group" name="ed2klink" type="text" id="ed2klink" placeholder="ed2k:// - Insert link" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px; height: 30px;" size="25">
-	        			<select class="form-control btn-group" name="selectcat" id="selectcat" style="height: 30px;">
-	        				        <?php
+	<!-- Piè di pagina: link ed2k e stato delle connessioni -->
+	<div id="footer">
+		<form name="formlink" method="post" class="form-inline" action="amuleweb-main-shared.php" role="form" id="formed2link">
+			<input class="form-control" name="ed2klink" type="text" id="ed2klink" placeholder="ed2k:// - Insert link" size="25">
+			<select class="form-select" name="selectcat" id="selectcat">
+				<?php
 							$cats = amule_get_categories();
 							if ( $HTTP_GET_VARS["Submit"] != "" ) {
 								$link = $HTTP_GET_VARS["ed2klink"];
@@ -495,9 +289,7 @@ function selectAll(check)
 								if ( strlen($link) > 0 ) {
 									$links = split("ed2k://", $link);
 									foreach($links as $linkn) {
-										if (strlen($linkn) > 0){
-											amule_do_ed2k_download_cmd("ed2k://" . $linkn, $target_cat_idx);
-										}
+									    amule_do_ed2k_download_cmd("ed2k://" . $linkn, $target_cat_idx);
 									}
 								}
 							}
@@ -506,14 +298,11 @@ function selectAll(check)
 								echo  '<option>', $c, '</option>';
 							}
 						?>
-	        		</select>
-	        		<input class="btn btn-default btn-group" type="submit" name="Submit" value="Download link" onClick="amuleweb-main-dload.php" style="height: 30px;">
-	    		</div>
-	    </form>
-			</div>
-			<div class="col-md-5">
-				<div class="form-inline" style="margin-top:10px;">
-					<?php
+			</select>
+			<input class="btn btn-default" type="submit" name="Submit" value="Download link">
+		</form>
+		<div class="footer-status">
+			<?php
 				      	$stats = amule_get_stats();
 				    	if ( $stats["id"] == 0 ) {
 				    		$ed2k = "Not connected";
@@ -545,9 +334,7 @@ function selectAll(check)
 				    	echo '<span class="label label-default">KAD:</span> ';
 				    	echo '<span class="label label-', $kad_status, '">', $kad1, ' ', $kad2, '</span>';
 				    ?>
-				</div>
-			</div>
-			<div class="col-md-1"></div>
 		</div>
+	</div>
 </body>
 </html>

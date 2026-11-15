@@ -1,130 +1,111 @@
-# AmuleWebUI-Reloaded Mateterial Style
+# AmuleWebUI-Reloaded — 2026 refresh
 
-Update style of 'AmuleWebUI-Reloaded' in Material design with CSS
+A modernised version of the **AmuleWebUI-Reloaded (Material)** web interface for the aMule daemon:
+Bootstrap 5, a single stylesheet, a dark theme and a layout that works on phones.
 
-## Credits 
+> **This is a modified version** of [AmuleWebUI-Reloaded](https://github.com/MatteoRagni/AmuleWebUI-Reloaded)
+> by Matteo Ragni and its contributors, revised by **Maurizio Imperatrice** in **October 2026**.
+> Like the original, it is released under the **GNU General Public License v3** (see [LICENSE](LICENSE)).
+> The full list of changes is in this repository's commit history.
 
-* Brax84 for a **full redesign** of my inital work, making it really nice ([Pull 17](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/17))
-* Knocks83 for fixing some README inconsistencies in links ([Pull 18](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/18)) and minor fixes ([Pull 19](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/19))
-* atlant2011 that improved integrity checks and caching in browser ([Pull 14](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/14))
-* gise88 for fixing an error in main search ([Pull 13](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/13))
-* ThecaTTony for fixing an error in sort by files ([Pull 9](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/9))
-* Daneden for animate .css `https://github.com/daneden/animate.css/`
-* tetreum fixed a bug in css ([Pull 23](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/23)) and in refreshing pages ([Pull 24](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/24))
-* RealGreenDragon for fixing a bug in web option settings ([Pull 44](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/44))
+| Transfers | Phone |
+| --- | --- |
+| ![Transfers](doc-images/reloaded-2026/transfer.png "Transfers") | ![Transfers on a phone](doc-images/reloaded-2026/mobile-transfer.png "Transfers on a phone") |
 
-## Structure 
+## What's new
 
-The structure and it's functionalities, is completely equivalent to the old `Reloaded`
+- **Bootstrap 5.3** instead of Bootstrap 3, with no jQuery. All libraries are bundled with the theme,
+  so nothing is loaded from the internet.
+- **One stylesheet** (`amule.css`) replaces the styles that were copied into every page.
+  All colours are CSS variables at the top of the file, so the palette can be changed in one place.
+- **New dark palette** (slate blue with a light-blue accent) and the
+  [Saira](https://github.com/Omnibus-Type/Saira) typeface throughout, slightly narrowed
+  (93.75% width), with tabular figures so numbers line up in tables.
+- **Works on phones**: one-row icon menu, tables that scroll sideways, a footer that wraps onto
+  several lines and form fields that fit the screen.
+- **Themed confirmation dialogs** instead of the browser's white pop-ups (download, remove, clear log).
+- **Fixes**: a login page that is styled before you log in, a correctly aligned *Total* row
+  in the download table, valid HTML (missing or extra tags closed), Bootstrap 5 carousel on the
+  statistics page and a working "back to top" button on the search page.
 
-## Change & Fix
+The pages still do exactly what they did before: the PHP code that talks to aMule has not been
+changed, only the HTML it prints.
 
-```
-Add CSS Animated Logo in Login page
-Add CSS FadeIn on all page
-Add modern style with CSS
-Add Top Page  button in Search with CSS and js code
-Fix css code Footer for Mobile Device
-```
+## Screenshots
 
-# Animated Login
+| Search | Statistics |
+| --- | --- |
+| ![Search](doc-images/reloaded-2026/search.png "Search") | ![Statistics](doc-images/reloaded-2026/stats.png "Statistics") |
 
-<p align="center">
-  <img width="460" height="300" src="https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadMateriaPic/login.gif?raw=true">
-</p>
+| Settings | Login |
+| --- | --- |
+| ![Settings](doc-images/reloaded-2026/settings.png "Settings") | ![Login](doc-images/reloaded-2026/login.png "Login") |
+
+The screenshots use sample data.
 
 ## Installation
 
-To install the web interface simply clone the repo in a directory inside `/usr/share/amule/webserver` (tested on my Raspberry running Raspbian):
+Tested on a Raspberry Pi running Raspberry Pi OS.
 
-Step 1: Stop `amule-daemon` process:
+1. Copy the theme into the aMule web server folder (the folder name is the template name):
 
-``` bash
-sudo service amule-daemon stop
-```
+   ```bash
+   cd /usr/share/amule/webserver
+   sudo git clone https://github.com/madaello/AmuleWebUI-Reloaded.git AmuleWebUI-New
+   ```
 
-``` bash
-cd /usr/share/amule/webserver
-sudo git clone https://github.com/MatteoRagni/AmuleWebUI-Reloaded.git
-```
+   You can also download the ZIP from GitHub and extract it there.
+   The files only need to be readable by aMule (`root:root`, folders `755`, files `644`).
 
-After, you need to edit configuration file:
+2. Stop aMule, then set the template in `amule.conf` (for example `~/.aMule/amule.conf`
+   of the user that runs aMule). aMule rewrites this file when it stops, so edit it while it is stopped:
 
-``` bash
-sudo nano /home/amule/.aMule/amule.conf
-```
-Find and edit line `Template`
+   ```bash
+   sudo systemctl stop amule-daemon
+   sudo nano /home/USER/.aMule/amule.conf
+   ```
 
-```
-...
-[Webserver]
-...
-Template=AmuleWebUI-Reloaded
-...
-```
+   ```ini
+   [WebServer]
+   ...
+   Template=AmuleWebUI-New
+   ```
 
-Step 2: Start `amule-daemon` process:
+3. Start aMule again:
 
-``` bash
-sudo service amule-daemon start (or restart command)
-```
+   ```bash
+   sudo systemctl start amule-daemon
+   ```
 
-Interface is available at address `http://localhost:4711` or `NetworkDeviceIp:4711`
+The interface is at `http://localhost:4711` (or the port set in `Port=` under `[WebServer]`).
 
+### Good to know
 
-## Comparison 
+- **Before you log in, amuleweb only serves images**: any other request, including `.css`
+  and `.js` files, gets the login page. This is why `login.php` contains its own styles,
+  and why the theme does not need the internet.
+- amuleweb cannot serve font files, so the Saira font and the icons are embedded in `amule.css`.
+- After an update, reload the page with **Ctrl+Shift+R** to skip the browser cache.
 
-#### Login 
+## Credits
 
-| Reloaded | Reloaded Material |
-| ---- | -------- |
-| ![login](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadPic/Login.png?raw=true "Reloaded login") | ![login2](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadMateriaPic/Login.png?raw=true "Material login" ) |
+Original project: **[Matteo Ragni](https://github.com/MatteoRagni/AmuleWebUI-Reloaded)**.
 
-#### Download/Uploads
+Contributors to the original project:
 
-| Reloaded | Reloaded Material |
-| ---- | -------- |
-| ![transfer](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadPic/Transfer.png?raw=true "Reloaded transfer") | ![transfer2](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadMateriaPic/Transfer.png?raw=true "Material transfer") |
+* Brax84 for a **full redesign** of the initial work ([Pull 17](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/17))
+* Knocks83 for fixing README links ([Pull 18](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/18)) and minor fixes ([Pull 19](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/19))
+* atlant2011 for integrity checks and browser caching ([Pull 14](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/14))
+* gise88 for fixing an error in main search ([Pull 13](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/13))
+* ThecaTTony for fixing an error in sort by files ([Pull 9](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/9))
+* Daneden for [animate.css](https://github.com/daneden/animate.css/) (the two animations used are now plain CSS in `amule.css`)
+* tetreum for fixes in CSS ([Pull 23](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/23)) and page refresh ([Pull 24](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/24))
+* brunix86 for multiple selection, download confirmation and log fixes ([Pull 42](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/pull/42))
 
-#### Search
+2026 refresh: **Maurizio Imperatrice**.
 
-| Reloaded | Reloaded Material |
-| ---- | -------- |
-| ![search](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadPic/Search.png?raw=true "Reloaded Search") | ![search2](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadMateriaPic/Search.png?raw=true "Material search") |
+Third-party components bundled with the theme (Bootstrap, Popper, Bootstrap Icons, Saira) keep their own
+licences: see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
-#### Shared
-
-| Reloaded | Reloaded Material |
-| ---- | -------- |
-| ![shared](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadPic/Shared.png?raw=true "Reloaded Shared") | ![shared2](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadMateriaPic/Shared.png?raw=true "Material Search") |
-
-
-#### Servers
-
-| Reloaded | Reloaded Material |
-| ---- | -------- |
-| ![servers](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadPic/Server.png?raw=true "Reloaded Server") | ![servers2](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadMateriaPic/Servers.png?raw=true "Material Server") |
-
-#### Kad connections
-
-| Reloaded | Reloaded Material |
-| ---- | -------- |
-| ![Kad](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadPic/Kad.png?raw=true "Reloaded Kad") | ![Kad2](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadMateriaPic/Kad.png?raw=true "Material kad") |
-
-#### Statistics
-
-| Reloaded | Reloaded Material |
-| ---- | -------- |
-| ![statistics](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadPic/Stats.png?raw=true "Reloaded statistics") | ![statistics2](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadMateriaPic/Statics.png?raw=true "Material statistics") |
-
-#### Preferences
-
-| Reloaded | Reloaded Material |
-| ---- | -------- |
-| ![preferences](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadPic/Prefs.png?raw=true "Reloaded preferences") | ![preferences2](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadMateriaPic/Settings.png?raw=true "Material preferences") |
-
-#### Logging
-
-| Reloaded | Reloaded Material |
-| ---- | -------- |
-| ![logs](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadPic/Logs.png?raw=true "Reloaded Logging") | ![logs2](https://github.com/MatteoRagni/AmuleWebUI-Reloaded/blob/master/doc-images/ReloadMateriaPic/Logs.png?raw=true "Material Logging") |
+Screenshots of the earlier versions are kept in [doc-images/ReloadPic](doc-images/ReloadPic)
+and [doc-images/ReloadMateriaPic](doc-images/ReloadMateriaPic).

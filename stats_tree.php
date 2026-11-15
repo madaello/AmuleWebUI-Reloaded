@@ -1,6 +1,5 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
-	"http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html data-bs-theme="dark">
 <head>
 	<title>amule preferences page</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,32 +10,7 @@
 		}
 	?>
 
-	<style type="text/css">
-	.trigger{
-		cursor: pointer;
-		cursor: hand;
-		/*font-family: Tahoma;*/
-		font-family: inherit;
-		font-size: small;
-	}
-	.branch{
-		display: block;
-		margin-left: 16px;
-		/*font-family: Tahoma;*/
-		font-family: inherit;
-		font-size: small;
-	}
-	<!--
-	body {
-		margin: 0px;
-		padding: 5px;
-		background-color: #39425f;
-		color:#fff;
-		font-family: sans-serif;
-		font-size:12px;
-	}
-	-->
-	</style>
+	<link rel="stylesheet" href="amule.css">
 </head>
 
 <script language="JavaScript" type="text/JavaScript">
@@ -62,7 +36,7 @@ function swapFolder(img){
 }
 
 </script>
-<body onLoad="showBranch('br_Stats');swapFolder('fl_Stats')">
+<body class="stats-tree-page" onLoad="showBranch('br_Stats');swapFolder('fl_Stats')">
 <?php
 
 function print_ident($i)

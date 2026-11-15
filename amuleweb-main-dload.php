@@ -1,245 +1,35 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
-<html>
-
+<!DOCTYPE html>
+<html data-bs-theme="dark">
 <head>
-
 	<title>aMule - Control Panel - Downloads and Uploads</title>
 	<?php
 		if ( $_SESSION["auto_refresh"] > 0 ) {
 			echo "<meta http-equiv=\"refresh\" content=\"", $_SESSION["auto_refresh"], '">';
 		}
 	?>
-
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#172631">
+	<link rel="icon" type="image/x-icon" href="/amule/favicon.ico">
 
-	<!-- Inclusion of bootstrap css -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" integrity="sha384-/Gm+ur33q/W+9ANGYwB2Q4V0ZWApToOzRuA8md/1p9xMMxpqnlguMvk8QuEFWA1B" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" integrity="sha384-7tY7Dc2Q8WQTKGz2Fa0vC4dWQo07N4mJjKvHfIGnxuC4vPqFGFQppd9b3NWpf18/" crossorigin="anonymous">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" integrity="sha384-BD3p+z3TqIhBK2OaMBRzK4Nz02t4OQcwrEkJxy3PAqU2Rwm1giS6RCgvBDk6+iPH" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" integrity="sha384-oFMgcGzKX7GaHtF4hx14KbxdsGjyfHK6m1comHjI1FH6g4m6qYre+4cnZbwaYbHD" crossorigin="anonymous"></script>
+	<!-- Bootstrap 5 e stili del tema (tutti nel file amule.css) -->
+	<link rel="stylesheet" href="bootstrap-5.3.8.min.css">
+	<link rel="stylesheet" href="amule.css">
+	<script src="bootstrap-5.3.8.bundle.min.js"></script>
+	<script src="amule.js"></script>
 
-	<script type="text/Javascript">
-		$(function () { $("[data-toggle='tooltip']").tooltip(); });
-		$(function () { $("[data-toggle='popover']").popover(); });
-		$(function () { $("[data-toggle='popoverTooltip']").popover({ container: 'body',
-			html: true,
-			content: function () {
-				return $(this).next('.popper-content').html();
-			}
-		}); });
-	</script>
-
-
-	<!-- Style for navigation bar -->
-	<style type="text/css">
-		body {
-			padding-top: 60px;
-			background-color:#39425f;
-		}
-		.logo-nav {
-			height: 40px;
-			width: 40px;
-		}
-		.navbar-brand {
-			padding-top: 5px;
-		}
-		.navbar-link:hover {
-			color: white !important;
-		}
-	</style>
-
-	<!-- Tasks panel -->
-	<style type="text/css">
-		.panel-tasks {
-			width: 95%;
-			margin-left: auto;
-			margin-right: auto;
-			background-color:#2F303D;
-		}
-		.panel-center {
-			text-align: center;
-			margin: auto;
-		}
-		.form-tasks .btn:hover {
-			color: white !important;
-		}
-
-		#filter {
-          width: 125px;
-          height: 28px;
-          border-top-right-radius: 0px;
-          border-bottom-right-radius: 0px;
-    }
-		#category {
-			width: 125px;
-			height: 28px;
-			border-radius: 0px;
-		}
-		.btn-filter {
-			border-top-left-radius: 0px;
-			border-bottom-left-radius: 0px;
-		}
-		.form-inline {
-                        margin-top: 1px;
-                        margin-bottom: 1px;
-                }
-	</style>
-
-	<!-- Tables -->
-	<style type="css/text">
-		.panel-tr {
-			width: 95%;
-			margin-left: auto;
-			margin-right: auto;
-			margin-top: 10px;
-		}
-	</style>
-
-		 <!-- /* Styling for Brax AmuleWebUI Material Theme */-->
-        <style text="css/text">
-
-                .navbar {
-                background-color:#2f303d;
-                }
-                .label-success {
-                        background-color:#319a9b;
-                }
-                .label-default {
-                        background-color:#ffffff;
-                        color:#319a9b;
-                }
-                .panel {
-                        background-color:#39425f;
-         		border: 0;
-
-                }
-                .panel-heading{
-                        background-color:#319a9b;
-                        border: 0;
-                }
-                .form-control {
-                border: 0;
-                }
-                .table > thead > tr > th, .table > thead > tr > td {
-                        border: 1;
-                }
-                .glyphicon {
-                        color:#319a9b;
-                }
-                .btn:hover .glyphicon{
-                        color:#fff;
-                }
-                .popover {
-                	background-color:#319a9b;
-                	color:black;
-			border: 1;
-                }
-				.popover-content {
-					background-color:#319a9b;
-					color:#cfd8dc;
-					border: 1;
-					word-wrap: break-word;
-					font-weight: bold;
-                }
-		.glyphicon + span {
-    			position: absolute;
-    			left:-5px;
- 			top:20px;
-			color:red;
-    			font-size:12px;
-		}
-                a:hover {
-                        color:#fff;
-                        }
-                a {
-                        color:#4db6ac;
-                }
-                h4 {
-                        color:#cfd8dc;
-                }
-                b:hover {
-                        color:#319a9b;
-                        }
-                b {
-                        color:#cfd8dc
-                }
-                  th {
-                        color:#4db6ac
-                }
-				.texte {
-					font-family: Helvetica;
-					font-size: 12px;
-					font-weight: normal;
-					overflow: hidden;
-					white-space: nowrap;
-					text-overflow: ellipsis;
-					word-break: break-all;
-					word-wrap: break-word;
-				}
-				.texte-full-name {
-					max-width: 0;
-					width: 45%;
-				}
-				.texte-full-name-upload {
-					width: 55%;
-				}
-				.progress-bar-complex>img {
-					border-bottom-left-radius: 4px;
-					border-bottom-right-radius: 4px;
-					height:4px !important;
-					width: 100%;
-				}
-				.progress {
-					height: 16px;
-					border-bottom-left-radius: 0px;
-					border-bottom-right-radius: 0px;
-				}
-				.label {
-					line-height: inherit;
-				}
-        </style>
-
-
-	<!-- Styling for footer -->
-	<style text="css/text">
-		#footer {
-			position: fixed;
-			bottom: 0;
-			width: 100%;
-			/* Set the fixed height of the footer here */
-			height: auto;
-			background-color:#2f303d;
-		}
-		#ed2link {
-			margin-right: 5px;
-			width: 120px;
-		}
-		#selectcat {
-			border-radius: 0px;
-			width: 100px;
-		}
-		#formed2link {
-			margin: 5px;
-		}
-	</style>
-
-
-	<!--<link href="style.css" rel="stylesheet" type="text/css">-->
-
-	<script language="JavaScript" type="text/JavaScript">
-	function formCommandSubmit(command)
+	<script>
+	function formCommandSubmit(command, confermato)
 	{
-		if ( command == "cancel" ) {
+		if ( command == "cancel" && !confermato ) {
 			var boxchecked = document.querySelectorAll('input[type="checkbox"]:checked');
 			var selectedFiles = Object.values(boxchecked).filter(selected => selected.name != 'selectAllFiles').length;
 			if (selectedFiles == 0)
 				return;
-			var res = confirm("Delete selected " + (selectedFiles) + " files ?")
-			if ( res == false ) {
-				return;
-			}
+			// finestra di conferma nei colori del tema (amule.js); se si conferma, riparte da qui
+			amuleConfirm("Delete selected " + selectedFiles + (selectedFiles == 1 ? " file?" : " files?"), "Delete",
+				function () { formCommandSubmit(command, true); }, true);
+			return;
 		}
 		if ( command != "filter" ) {
 			<?php
@@ -260,7 +50,7 @@
 			{
 				checkboxes.forEach(function(checkbox) {
 					checkbox.checked = true;
-				});
+				});			
 			}
 			else
 			{
@@ -272,76 +62,28 @@
 	</script>
 </head>
 
-<body class="animated fadeIn" style="animation-duration: 1.5s">
-	<!-- Navigation bar :: This part will be common in all the scripts -->
-	<nav class="navbar  navbar-fixed-top" role="navigation">
-	    <div class="container">
-	    	<a class="navbar-brand" href="#"><img src="logo-nav.png" class="logo-nav">aMule WebUI</a>
-	    	<form class="navbar-form navbar-right" role="form" name="login">
-				<div class="collapse navbar-collapse">
-					<div class="btn-group">
-						<!-- Downloads -->
-						<a class="btn  navbar-link" title="Downloads and Uploads" href="amuleweb-main-dload.php">
-				   				<span class="glyphicon glyphicon-transfer"></span>
-								<div style="font-size:9px"><br>Transfer</div>
-
-						</a>
-				   		<!-- Shared -->
-				   		<a class="btn  navbar-link" title="Sharing" href="amuleweb-main-shared.php">
-					   			<span class="glyphicon glyphicon-share"></span>
-								<div style="font-size:9px"><br>Shared</div>
-
-				   				</a>
-				   		<!-- Search -->
-				   		<a class="btn  navbar-link" title="Search" href="amuleweb-main-search.php">
-					   			<span class="glyphicon glyphicon-search"></span>
-								<div style="font-size:9px"><br>Search</div>
-
-					   	</a>
-				   		<!-- Servers -->
-				   		<a class="btn  navbar-link" title="Servers" href="amuleweb-main-servers.php">
-					   			<span class="glyphicon glyphicon-tasks"></span>
-								<div style="font-size:9px"><br>Server</div>
-
-					   	</a>
-				   		<!-- Kad -->
-				   		<a class="btn  navbar-link" title="Kademlia" href="amuleweb-main-kad.php">
-					   			<span class="glyphicon glyphicon-asterisk"></span>
-								<div style="font-size:9px"><br>Kad</div>
-
-					   	</a>
-				   		<!-- Stats -->
-				   		<a class="btn  navbar-link" title="Statistics" href="amuleweb-main-stats.php">
-					   			<span class="glyphicon glyphicon-stats"></span>
-								<div style="font-size:9px"><br>Stats</div>
-
-					   	</a>
-				   	</div>
-				   	<div class="btn-group">
-						<!-- Configuration -->
-						<a class="btn navbar-link" title="Configurations" href="amuleweb-main-prefs.php">
-					   			<span class="glyphicon glyphicon-cog"></span>
-								<div style="font-size:9px"><br>Settings</div>
-
-					   	</a>
-				   		<!-- Log -->
-				   		<a class="btn  navbar-link" title="Log" href="amuleweb-main-log.php">
-					   			<span class="glyphicon glyphicon-flag"></span>
-								<div style="font-size:9px"><br>Logs</div>
-
-					   	</a>
-				   		<!-- Exit -->
-				   		<a class="btn navbar-link" title="Exit" href="login.php">
-				   				<span class="glyphicon glyphicon-off"></span>
-								<div style="font-size:9px"><br>Exit</div>
-
-				   		</a>
-				   	</div>
-		    	</div>
-    		</form>
-    		</div>
-    	</div>
-    </nav>
+<body class="page-dload animated fadeIn">
+	<!-- Barra di navigazione (uguale in tutte le pagine) -->
+	<nav class="navbar fixed-top amule-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="#"><img src="logo-nav-brax.png" class="logo-nav" alt=""><span class="brand-text">aMule WebUI</span></a>
+			<div class="amule-menu">
+				<div class="btn-group">
+					<a class="btn btn-icon navbar-link active" title="Downloads and Uploads" href="amuleweb-main-dload.php" aria-current="page"><span class="bi bi-arrow-left-right"></span><span class="btn-label">Transfer</span></a>
+					<a class="btn btn-icon navbar-link" title="Sharing" href="amuleweb-main-shared.php"><span class="bi bi-share-fill"></span><span class="btn-label">Shared</span></a>
+					<a class="btn btn-icon navbar-link" title="Search" href="amuleweb-main-search.php"><span class="bi bi-search"></span><span class="btn-label">Search</span></a>
+					<a class="btn btn-icon navbar-link" title="Servers" href="amuleweb-main-servers.php"><span class="bi bi-hdd-stack-fill"></span><span class="btn-label">Server</span></a>
+					<a class="btn btn-icon navbar-link" title="Kademlia" href="amuleweb-main-kad.php"><span class="bi bi-asterisk"></span><span class="btn-label">Kad</span></a>
+					<a class="btn btn-icon navbar-link" title="Statistics" href="amuleweb-main-stats.php"><span class="bi bi-bar-chart-fill"></span><span class="btn-label">Stats</span></a>
+				</div>
+				<div class="btn-group">
+					<a class="btn btn-icon navbar-link" title="Configurations" href="amuleweb-main-prefs.php"><span class="bi bi-gear-fill"></span><span class="btn-label">Settings</span></a>
+					<a class="btn btn-icon navbar-link" title="Log" href="amuleweb-main-log.php"><span class="bi bi-flag-fill"></span><span class="btn-label">Logs</span></a>
+					<a class="btn btn-icon navbar-link" title="Exit" href="login.php"><span class="bi bi-power"></span><span class="btn-label">Exit</span></a>
+				</div>
+			</div>
+		</div>
+	</nav>
 
     <!-- Commands -->
     <form action="amuleweb-main-dload.php" method="post" name="mainform">
@@ -350,28 +92,18 @@
   		<div class="panel-body container panel-center">
     		<div class="form-inline form-tasks">
     		<div class="btn-group">
-    			<a class="btn" href="javascript:formCommandSubmit('pause');" title="Pause">
-						<span class="glyphicon glyphicon-pause"></span>
-						<div style="font-size:9px"><br>Pause</div>
-					</a>
-    			<a class="btn" href="javascript:formCommandSubmit('resume');" title="Resume">
-						<span class="glyphicon glyphicon-play"></span>
-							<div style="font-size:9px"><br>Resume</div>
-					</a>
+    			<a class="btn btn-icon" href="javascript:formCommandSubmit('pause');" title="Pause">
+						<span class="bi bi-pause-fill"></span><span class="btn-label">Pause</span></a>
+    			<a class="btn btn-icon" href="javascript:formCommandSubmit('resume');" title="Resume">
+						<span class="bi bi-play-fill"></span><span class="btn-label">Resume</span></a>
     		</div>
     		<div class="btn-group">
-    			<a class="btn" href="javascript:formCommandSubmit('priodown');" title="Lower priority">
-						<span class="glyphicon glyphicon-download"></span>
-						<div style="font-size:9px"><br>Lower Priority</div>
-			</a>
-    			<a class="btn" href="javascript:formCommandSubmit('cancel');" title="Remove">
-						<span class="glyphicon glyphicon-remove-circle"></span>
-						<div style="font-size:9px"><br>Remove</div>
-			</a>
-    			<a class="btn" href="javascript:formCommandSubmit('prioup');" title="Higher priority">
-						<span class="glyphicon glyphicon-upload"></span>
-						<div style="font-size:9px"><br>High Priority</div>
-			</a>
+    			<a class="btn btn-icon" href="javascript:formCommandSubmit('priodown');" title="Lower priority">
+						<span class="bi bi-arrow-down-circle"></span><span class="btn-label">Lower Priority</span></a>
+    			<a class="btn btn-icon" href="javascript:formCommandSubmit('cancel');" title="Remove">
+						<span class="bi bi-x-circle"></span><span class="btn-label">Remove</span></a>
+    			<a class="btn btn-icon" href="javascript:formCommandSubmit('prioup');" title="Higher priority">
+						<span class="bi bi-arrow-up-circle"></span><span class="btn-label">High Priority</span></a>
     		</div>
     		<!-- Inserting filtering php -->
     		<div class="btn-group">
@@ -385,23 +117,21 @@
 
         		if ( $_SESSION["filter_cat"] == '') $_SESSION["filter_cat"] = 'all';
 
-        		echo '<select name="status" id="filter" class="form-control btn-group"> ';
+        		echo '<select name="status" id="filter" class="form-select"> ';
         		foreach ($all_status as $s) {
         			echo (($s == $_SESSION["filter_status"]) ? '<option selected>' : '<option>'), $s, '</option>';
         		}
         		echo '</select>';
 
-        		echo '<select name="category" id="category" class="form-control btn-group">';
+        		echo '<select name="category" id="category" class="form-select">';
 				$cats = amule_get_categories();
 				foreach($cats as $c) {
 					echo (($c == $_SESSION["filter_cat"]) ? '<option selected>' : '<option>'), $c, '</option>';
 				}
 				echo '</select>';
     		?>
-    		<a class="btn btn-filter" href="javascript:formCommandSubmit('filter');" title="Filter">
-					<span class="glyphicon glyphicon-filter"></span>
-						<div style="font-size:9px"><br>Filter</div>
-					</a>
+    		<a class="btn btn-icon btn-filter" href="javascript:formCommandSubmit('filter');" title="Filter">
+					<span class="bi bi-funnel-fill"></span><span class="btn-label">Filter</span></a>
     		<?php
     			if ($_SESSION["guest_login"] != 0) {
 				    echo '<br><br><span class="label label-warning">You logged in as guest - commands are disabled</span>';
@@ -411,14 +141,13 @@
   		</div>
   		</div>
 	</div>
-
 	<!-- BEGIN OF CENTRAL BODY -->
 	<div class="container-fluid panel-tr">
 
 		<!-- Table Download -->
-		<div class="panel" style="margin-bottom: 10px;">
+		<div class="panel panel-download">
 		<div class="panel-heading panel-center"><h4>DOWNLOAD</h4></div>
-			<table class="table">
+			<div class="table-responsive"><table class="table">
 				<thead>
 					<tr>
 						<th><input type="checkbox" name="selectAllFiles" onclick='selectAll(this);'></th>
@@ -450,11 +179,11 @@
 
 					function StatusClass($file) {
 						if ( $file->status == 7 ) {
-							return '<span class="label label-info" style="font-size:12px; padding-top:3.6px;">Paused</span>';
+							return '<span class="label label-info">Paused</span>';
 						} elseif ( $file->src_count_xfer > 0 ) {
-							return '<span class="label label-success" style="font-size:12px;">Downloading</span>';
+							return '<span class="label label-success">Downloading</span>';
 						} else {
-							return '<span class="label label-warning" style="font-size:12px;">Waiting</span>';
+							return '<span class="label label-warning">Waiting</span>';
 						}
 					}
 
@@ -533,18 +262,18 @@
 								$status ='class="progress-bar progress-bar-danger"';
 								break;
 						}
-						echo '	<div class="progress" style="margin: 0px;"
+						echo '	<div class="progress"
 						            data-toggle="popover" data-placement="bottom" data-title="Segments"
 								    data-html="true" data-trigger="hover" data-content='. "'" . $file->progress . "'" . '>
 								    <div '.$status.' role="progressbar" aria-valuenow="'.$done.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$done.'%"></div>
 								</div>';
 					}
 					function create_tooltip($name) {
-						echo '	<div class="texte" style="margin: 0px;"
+						echo '	<div class="texte"
 									data-toggle="popoverTooltip" data-placement="bottom"
 									data-html="true" data-trigger="hover" >
 									<b>&nbsp;'. $name .'</b>
-
+								
 								</div>
 								<div class="popper-content hide">&nbsp;'. $name .'</div>';
 					}
@@ -606,20 +335,20 @@
 						if ( $filter_status_result and $filter_cat_result) {
 							print "<tr>";
 								// Checkbox
-								echo "<td class='texte'>", '<div class="checkbox download-checkbox" style="margin: 0px;"><input type="checkbox" name="', $file->hash, '" >', "</div></td>";
+								echo "<td class='texte'>", '<div class="checkbox download-checkbox"><input type="checkbox" name="', $file->hash, '" >', "</div></td>";
 								// Name
-								echo "<td style='font-size:12px;color:#f5f5f5' class='texte texte-full-name'>", '<label>', create_tooltip($file->name) , "</label></td>";
-								echo "<td style='font-size:12px;color:#f5f5f5' class='texte'>", CastToXBytes($file->size, $countSize), "</td>";
+								echo "<td class='texte texte-full-name'>", '<label>', create_tooltip($file->name) , "</label></td>";
+								echo "<td class='texte'>", CastToXBytes($file->size, $countSize), "</td>";
 								// Size
-								echo "<td style='font-size:12px;color:#f5f5f5' class='texte'>", CastToXBytes($file->size_done, $countCompleted), "&nbsp;(",
+								echo "<td class='texte'>", CastToXBytes($file->size_done, $countCompleted), "&nbsp;(",
 									((float)$file->size_done*100)/((float)$file->size), "%)</td>";
 								// Speed
-								echo "<td style='font-size:12px;color:#f5f5f5' class='texte'>", ($file->speed > 0) ? (CastToXBytes($file->speed, $countSpeed) . "/s") : "-", "</td>";
+								echo "<td class='texte'>", ($file->speed > 0) ? (CastToXBytes($file->speed, $countSpeed) . "/s") : "-", "</td>";
 								// Progress
-								echo "<td style='font-size:12px;'><div>", create_prg_bar($file),"</div><div class='progress-bar-complex'>", $file->progress, "</div></td>";
-								//echo "<td style='font-size:12px;' class='texte'>", create_prg_bar($file), "</td>";
+								echo "<td><div>", create_prg_bar($file),"</div><div class='progress-bar-complex'>", $file->progress, "</div></td>";
+								//echo "<td class='texte'>", create_prg_bar($file), "</td>";
 								// Sources
-								echo "<td style='font-size:12px;color:#f5f5f5' class='texte'>";
+								echo "<td class='texte'>";
 								if ( $file->src_count_not_curr != 0 ) {
 									echo $file->src_count - $file->src_count_not_curr, " / ";
 								}
@@ -627,45 +356,46 @@
 								if ( $file->src_count_a4af != 0 ) {
 									echo "+ ", $file->src_count_a4af;
 								}
-								echo "</td style='font-size:12px;'>";
+								echo "</td>";
 								// Status
-								echo "<td style='font-size:12px;' class='texte'>", StatusClass($file), "</td>";
+								echo "<td class='texte'>", StatusClass($file), "</td>";
 								// Priority
-								echo "<td style='font-size:12px;color:#f5f5f5' class='texte'>", PrioString($file), "</td>";
+								echo "<td class='texte'>", PrioString($file), "</td>";
 							echo "</tr>";
-
+							
 						}
 					}
 					if (count($downloads) > 0 and $countSize > 0) {
 						print "<tr>";
-						echo "<td style='font-size:12px;color:#c9c9c9;padding-bottom:0;text-align: right;padding-right: 20px;'>Total</td>";
-						echo "<td style='font-size:12px;color:#c9c9c9;padding-bottom:0;'>", CastToXBytes($countSize, $fakevar), "</td>";
-						echo "<td style='font-size:12px;color:#c9c9c9;padding-bottom:0;'>", CastToXBytes($countCompleted, $fakevar), "&nbsp;(",
+						echo "<td class='total'></td>";
+						echo "<td class='total total-label'>Total</td>";
+						echo "<td class='total'>", CastToXBytes($countSize, $fakevar), "</td>";
+						echo "<td class='total'>", CastToXBytes($countCompleted, $fakevar), "&nbsp;(",
 							($countSize > 0) ? ((float)$countCompleted*100)/((float)$countSize) : "0", "%)</td>";
-						echo "<td style='font-size:12px;color:#c9c9c9;padding-bottom:0;'>", ($countSpeed > 0) ? (CastToXBytes($countSpeed, $fakevar) . "/s" ) : "", "</td>";
-						echo "<td style='padding-bottom:0;'></td>";
-						echo "<td style='padding-bottom:0;'></td>";
-						echo "<td style='padding-bottom:0;'></td>";
-						echo "<td style='padding-bottom:0;'></td>";
+						echo "<td class='total'>", ($countSpeed > 0) ? (CastToXBytes($countSpeed, $fakevar) . "/s" ) : "", "</td>";
+						echo "<td class='total'></td>";
+						echo "<td class='total'></td>";
+						echo "<td class='total'></td>";
+						echo "<td class='total'></td>";
 						echo "</tr>";
 					}
 					?>
 				</tbody>
-			</table>
+			</table></div>
 		</div>
 		</form>
 
 		<!-- Table Upload -->
-		<div class="panel" style="margin-bottom: 60px;background-color:#39425f;">
-		<div class="panel-heading panel-center" style="background-color:#319a9b;"><h4>UPLOAD</h4></div>
-			<table class="table">
+		<div class="panel panel-upload">
+		<div class="panel-heading panel-center"><h4>UPLOAD</h4></div>
+			<div class="table-responsive"><table class="table">
 				<thead>
 					<tr>
-						<th style="color:#4db6ac">File Name</th>
-						<th style="color:#4db6ac">Username</th>
-						<th style="color:#4db6ac">Up</th>
-						<th style="color:#4db6ac">Down</th>
-						<th style="color:#4db6ac">Speed</th>
+						<th>File Name</th>
+						<th>Username</th>
+						<th>Up</th>
+						<th>Down</th>
+						<th>Speed</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -692,11 +422,11 @@
 						}
 					}
 					function create_tooltip($name) {
-						echo '	<div class="texte" style="margin: 0px;"
+						echo '	<div class="texte"
 									data-toggle="popoverTooltip" data-placement="bottom"
 									data-html="true" data-trigger="hover" >
 									<b>&nbsp;'. $name .'</b>
-
+								
 								</div>
 								<div class="popper-content hide">&nbsp;'. $name .'</div>';
 					}
@@ -709,42 +439,38 @@
 					foreach ($uploads as $file) {
 						echo "<tr>";
 						// Name
-						echo "<td style='font-size:12px;color:#f5f5f5' class='texte texte-full-name'><b>", create_tooltip($file->name) , "</b></td>";
+						echo "<td class='texte texte-full-name'><b>", create_tooltip($file->name) , "</b></td>";
 						// User name
-						echo "<td style='font-size:12px;color:#f5f5f5' class='texte'>", $file->user_name, "</td>";
+						echo "<td class='texte'>", $file->user_name, "</td>";
 						// Upload dimension
-						echo "<td style='font-size:12px;color:#f5f5f5' class='texte'>", CastToXBytes($file->xfer_up, $countUploadDimension), "</td>";
+						echo "<td class='texte'>", CastToXBytes($file->xfer_up, $countUploadDimension), "</td>";
 						// Download dimension
-						echo "<td style='font-size:12px;color:#f5f5f5' class='texte'>", CastToXBytes($file->xfer_down, $countDownloadDimension), "</td>";
+						echo "<td class='texte'>", CastToXBytes($file->xfer_down, $countDownloadDimension), "</td>";
 						// Speed
-						echo "<td style='font-size:12px;color:#f5f5f5' class='texte'>", ($file->xfer_speed > 0) ? (CastToXBytes($file->xfer_speed, $countSpeed) . "/s") : "", "</td>";
+						echo "<td class='texte'>", ($file->xfer_speed > 0) ? (CastToXBytes($file->xfer_speed, $countSpeed) . "/s") : "", "</td>";
+						echo "</tr>";
 					}
 					if (count($uploads)>0) {
 						echo "<tr>";
-						echo "<td style='padding-bottom:0;'></td>";
-						echo "<td style='font-size:12px;color:#c9c9c9;padding-bottom:0;text-align: right;padding-right: 20px;'>Total</td>";
-						echo "<td style='font-size:12px;color:#c9c9c9;padding-bottom:0;'>", CastToXBytes($countUploadDimension, $fakevar), "</td>";
-						echo "<td style='font-size:12px;color:#c9c9c9;padding-bottom:0;'>", CastToXBytes($countDownloadDimension, $fakevar), "</td>";
-						echo "<td style='font-size:12px;color:#c9c9c9;padding-bottom:0;'>", CastToXBytes($countSpeed, $fakevar) . "/s", "</td>";
+						echo "<td class='total'></td>";
+						echo "<td class='total total-label'>Total</td>";
+						echo "<td class='total'>", CastToXBytes($countUploadDimension, $fakevar), "</td>";
+						echo "<td class='total'>", CastToXBytes($countDownloadDimension, $fakevar), "</td>";
+						echo "<td class='total'>", CastToXBytes($countSpeed, $fakevar) . "/s", "</td>";
+						echo "</tr>";
 					}
 				?>
-      </table>
-
-
 				</tbody>
-			</table>
+			</table></div>
 		</div>
 
 
 	</div>
+	<!-- Piè di pagina: link ed2k e stato delle connessioni -->
 	<div id="footer">
-		<div class="col-md-1"></div>
-		<div class="col-md-5">
-			<form name="formlink" method="post" class="form-inline" action="amuleweb-main-dload.php" role="form" id="formed2link">
-    			<div class="btn-group">
-        			<input class="form-control btn-group" name="ed2klink" type="text" id="ed2klink" placeholder="ed2k:// - Insert link" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px; height: 30px;" size="25">
-        			<select class="form-control btn-group" name="selectcat" id="selectcat" style="height: 30px;">
-
+		<form name="formlink" method="post" class="form-inline" action="amuleweb-main-dload.php" role="form" id="formed2link">
+			<input class="form-control" name="ed2klink" type="text" id="ed2klink" placeholder="ed2k:// - Insert link" size="25">
+			<select class="form-select" name="selectcat" id="selectcat">
 			        <?php
 						$cats = amule_get_categories();
 
@@ -760,9 +486,7 @@
 							if ( strlen($link) > 0 ) {
 								$links = split("ed2k://", $link);
 								foreach($links as $linkn) {
-									if (strlen($linkn) > 0){
-										amule_do_ed2k_download_cmd("ed2k://" . $linkn, $target_cat_idx);
-									}
+								    amule_do_ed2k_download_cmd("ed2k://" . $linkn, $target_cat_idx);
 								}
 							}
 						}
@@ -771,13 +495,10 @@
 							echo  '<option>', $c, '</option>';
 						}
 					?>
-        		</select>
-        		<input class="btn btn-default btn-group" type="submit" name="Submit" value="Download link" onClick="amuleweb-main-dload.php" style="height: 30px;">
-    		</div>
-    </form>
-		</div>
-		<div class="col-md-5">
-			<div class="form-inline" style="margin-top:10px;">
+			</select>
+			<input class="btn btn-default" type="submit" name="Submit" value="Download link">
+		</form>
+		<div class="footer-status">
 				<?php
 			      	$stats = amule_get_stats();
 			    	if ( $stats["id"] == 0 ) {
@@ -810,9 +531,7 @@
 			    	echo '<span class="label label-default">KAD:</span> ';
 			    	echo '<span class="label label-', $kad_status, '">', $kad1, ' ', $kad2, '</span>';
 			    ?>
-			</div>
 		</div>
-		<div class="col-md-1"></div>
 	</div>
 </body>
 </html>
