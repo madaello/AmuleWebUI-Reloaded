@@ -32,7 +32,7 @@
       );
       $conn_opts = array("max_line_up_cap","max_up_limit",
         "max_line_down_cap","max_down_limit", "slot_alloc",
-        "tcp_port","udp_dis","max_file_src","max_conn_total","autoconn_en");
+        "tcp_port","udp_port","udp_dis","max_file_src","max_conn_total","autoconn_en","reconn_en");
       $webserver_opts = array("use_gzip", "autorefresh_time");
 
       $all_opts;
@@ -375,7 +375,9 @@
               if ( strlen($link) > 0 ) {
                 $links = split("ed2k://", $link);
                 foreach($links as $linkn) {
-                    amule_do_ed2k_download_cmd("ed2k://" . $linkn, $target_cat_idx);
+                    if (strlen($linkn) > 0) {
+                        amule_do_ed2k_download_cmd("ed2k://" . $linkn, $target_cat_idx);
+                    }
                 }
               }
             }
