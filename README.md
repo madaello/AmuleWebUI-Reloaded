@@ -88,6 +88,8 @@ The interface is at `http://localhost:4711` (or the port set in `Port=` under `[
 
 If you download the ZIP from GitHub, rename the extracted folder to `AmuleWebUI-New`.
 
+A step-by-step guide (in Italian) to installing aMule on a Raspberry Pi with this interface, including nightly maintenance scripts: [aMule sul Raspberry Pi](https://www.nwp.to.it/installazione-amule/).
+
 ### Good to know
 
 - **Before you log in, amuleweb only serves images**: any other request, including `.css`
