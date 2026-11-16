@@ -98,6 +98,10 @@ A step-by-step guide (in Italian) to installing aMule on a Raspberry Pi with thi
 - amuleweb cannot serve font files, so the Saira font and the icons are embedded in `amule.css`.
 - After an update, reload the page with **Ctrl+Shift+R** to skip the browser cache.
 
+## Support
+
+This is a personal project, maintained in my spare time: bug reports and suggestions are welcome, but I can't promise quick fixes or new features.
+
 ## Credits
 
 Original project: **[Matteo Ragni](https://github.com/MatteoRagni/AmuleWebUI-Reloaded)**.
